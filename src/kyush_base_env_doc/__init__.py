@@ -7,7 +7,7 @@ with UV package manager, Docker, and data science libraries.
 
 __version__ = "0.1.0"
 __author__ = "KYUSH Consulting"
-__email__ = "contact@kyush.com"
+__email__ = "kyush.consulting@gmail.com"
 
 # Make main function available at package level
 from .main import main
