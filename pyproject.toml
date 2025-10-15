@@ -1,7 +1,62 @@
 [project]
-name = "test3-proj"
+name = "kyush-base-env-doc"
 version = "0.1.0"
-description = "Add your description here"
+description = "Complete reference project for Python development with UV, Docker, and Data Science libraries"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "pandas>=2.0.0",
+    "numpy>=1.24.0",
+    "matplotlib>=3.7.0",
+    "seaborn>=0.12.0",
+]
+authors = [
+    {name = "KYUSH Consulting", email = "contact@kyush.com"}
+]
+license = {text = "MIT"}
+keywords = ["python", "uv", "docker", "data-science", "template"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "black>=23.0.0",
+    "mypy>=1.0.0",
+    "ruff>=0.1.0",
+]
+web = [
+    "fastapi>=0.100.0",
+    "uvicorn[standard]>=0.23.0",
+]
+ml = [
+    "scikit-learn>=1.3.0",
+    "jupyter>=1.0.0",
+    "ipykernel>=6.0.0",
+    "plotly>=5.0.0",
+]
+
+[project.scripts]
+kyush-demo = "kyush_base_env_doc.main:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.black]
+line-length = 88
+target-version = ['py312']
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+
+[tool.ruff]
+select = ["E", "F", "UP", "B", "SIM", "I"]
+line-length = 88
+target-version = "py312"
